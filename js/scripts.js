@@ -1,11 +1,13 @@
 $(document).ready(function() {
-$("#ingredients").submit(function(event) {
+$("form#ingredients").submit(function(event) {
   event.preventDefault();
 
-  let item=[".peanuts", ".sprouts"];
-  let groceries=[];
-  groceries.push($("input#peanuts").val());
-  groceries.push($("input#sprouts").val());
-
+$("input:checkbox[name='groceries']:checked").each(function() {
+    let groceries= $(this).text();
+  
+  $('#shoppinglist').append(groceries + "<br>");
+  console.log(groceries);
+  $("#shoppinglist").show();
+});
 });
 });
